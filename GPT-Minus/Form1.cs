@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //merci chatgpt
+//made in switzerland (land mit grosse stein mit schnee drauf)
 namespace GPT_Minus_App
 {
     public partial class Form1 : Form
@@ -109,6 +110,4 @@ namespace GPT_Minus_App
 // mein lehrer
 // mein mitschüler
 // Pythagoras
-// Sam Altman, Elon Musk, Ilya Sutskever, Greg Brockman, Trevor Blackwell, Vicki Cheung, Andrej Karpathy, Durk Kingma, John Schulman, Pamela Vagata und Wojciech Zaremba (die leute haben openai gemacht und so)
 // chatgpt
-// Microsoft
