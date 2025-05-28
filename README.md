@@ -1,7 +1,7 @@
 # GPT-Minus
 Simple C# Winforms App to use multiple AI models.
 
-![Screenshot 2025-05-28 180137](https://github.com/user-attachments/assets/2a5d13d6-499c-4ba1-b552-6deff3ba061a)
+![Screenshot 2025-05-28 180137](https://github.com/user-attachments/assets/1a4a3072-f388-43b7-9256-c16f522b3755)
 > Colors may be diffrent depending on your theme as on this screenshot i am using [MicaForEveryone](https://github.com/MicaForEveryone/MicaForEveryone)
 
 # To-Do list
