@@ -19,6 +19,13 @@ A simple C# WinForms app that lets you chat with multiple AI models. 🤖
 ## Suggestions and Bugs 🐞
 Please leave any suggestions or bug reports in the [Issues](../../issues) tab. It would be very appreciated! 😄
 
+## Help Wanted 🛠️
+I'm currently looking for help with **UI design**. If you have experience with WinForms or desktop app interfaces and want to contribute, I’d really appreciate your input!  
+Please note: **this is a hobby project** and **completely unpaid** — I’m not able to offer compensation of any kind.  
+Your help would be voluntary, just for the joy of contributing to open-source software.
+
+If you’re interested, feel free to add me on Discord: **@kroefer_1**
+
 ## Credits 🙏
 Thanks to everyone who inspired or helped make this project possible:  
 - My teacher  
