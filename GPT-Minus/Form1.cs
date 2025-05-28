@@ -101,6 +101,11 @@ namespace GPT_Minus_App
             Form2 helpme = new Form2(); // offnen dise helping scheise
             helpme.ShowDialog();
         }
+
+        private void txtResponse_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

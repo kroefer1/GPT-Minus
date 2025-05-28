@@ -8,7 +8,6 @@ namespace GPT_Minus_App
         private System.Windows.Forms.Button btnSaveApiKey;
         private System.Windows.Forms.TextBox txtUserInput;
         private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.TextBox txtResponse;
 
         protected override void Dispose(bool disposing)
         {
@@ -26,10 +25,10 @@ namespace GPT_Minus_App
             this.btnSaveApiKey = new System.Windows.Forms.Button();
             this.txtUserInput = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
-            this.txtResponse = new System.Windows.Forms.TextBox();
             this.cmbModel = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtResponse = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // txtApiKey
@@ -52,6 +51,7 @@ namespace GPT_Minus_App
             // 
             // txtUserInput
             // 
+            this.txtUserInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUserInput.Location = new System.Drawing.Point(502, 79);
             this.txtUserInput.Multiline = true;
             this.txtUserInput.Name = "txtUserInput";
@@ -62,21 +62,11 @@ namespace GPT_Minus_App
             // 
             this.btnSend.Location = new System.Drawing.Point(502, 289);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(300, 30);
+            this.btnSend.Size = new System.Drawing.Size(300, 28);
             this.btnSend.TabIndex = 3;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
-            // 
-            // txtResponse
-            // 
-            this.txtResponse.Location = new System.Drawing.Point(12, 12);
-            this.txtResponse.Multiline = true;
-            this.txtResponse.Name = "txtResponse";
-            this.txtResponse.ReadOnly = true;
-            this.txtResponse.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtResponse.Size = new System.Drawing.Size(484, 307);
-            this.txtResponse.TabIndex = 4;
             // 
             // cmbModel
             // 
@@ -112,15 +102,26 @@ namespace GPT_Minus_App
             this.label1.TabIndex = 7;
             this.label1.Text = "make an api key for free at https://openrouter.ai/settings/keys";
             // 
+            // txtResponse
+            // 
+            this.txtResponse.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtResponse.Location = new System.Drawing.Point(12, 10);
+            this.txtResponse.Name = "txtResponse";
+            this.txtResponse.ReadOnly = true;
+            this.txtResponse.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.txtResponse.Size = new System.Drawing.Size(484, 307);
+            this.txtResponse.TabIndex = 8;
+            this.txtResponse.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 327);
+            this.ClientSize = new System.Drawing.Size(814, 329);
+            this.Controls.Add(this.txtResponse);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbModel);
-            this.Controls.Add(this.txtResponse);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtUserInput);
             this.Controls.Add(this.btnSaveApiKey);
@@ -139,5 +140,6 @@ namespace GPT_Minus_App
         private System.Windows.Forms.ComboBox cmbModel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox txtResponse;
     }
 }
