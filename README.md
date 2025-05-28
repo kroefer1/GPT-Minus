@@ -17,3 +17,10 @@ A simple C# WinForms app that lets you chat with multiple AI models. 🤖
 
 ## Suggestions and Bugs 🐞
 Please leave any suggestions or bug reports in the [Issues](../../issues) tab. It would be very appreciated! 😄
+
+## Credits 🙏
+Thanks to everyone who inspired or helped make this project possible:  
+- My teacher  
+- My classmate  
+- Pythagoras  
+- ChatGPT  
