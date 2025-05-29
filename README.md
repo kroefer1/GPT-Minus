@@ -1,7 +1,7 @@
 # GPT-Minus
 A simple C# WinForms app that lets you chat with multiple AI models. 🤖
 
-![Screenshot](https://github.com/user-attachments/assets/1a4a3072-f388-43b7-9256-c16f522b3755)
+![image](https://github.com/user-attachments/assets/06229a12-c567-49cc-afd9-2d960a3c1d04)
 
 > UI may change in the future — you can help improve it [here.](#help-wanted-%EF%B8%8F)
 
