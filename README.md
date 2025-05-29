@@ -6,7 +6,7 @@ A simple C# WinForms app that lets you chat with multiple AI models. 🤖
 > UI may change in the future — you can help improve it [here.](#help-wanted-%EF%B8%8F)
 
 ## Download 📦
-soon
+[Releases](https://github.com/kroefer1/GPT-Minus/releases/tag/v0.2-beta) Tab
 
 ## Requirements ⚙️
 - Windows 10 or later (older versions not tested) 🖥️  
