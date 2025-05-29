@@ -2,7 +2,7 @@
 A simple C# WinForms app that lets you chat with multiple AI models. 🤖
 
 ![Screenshot](https://github.com/user-attachments/assets/1a4a3072-f388-43b7-9256-c16f522b3755)
-> UI May change in the future you can help change it [here.](#Help-Wanted-🛠️)
+> UI May change in the future you can help change it [here.](#help-wanted)
 
 ## Download 📦
 not available at the moment due to many bugs like the app not working  
