@@ -19,8 +19,8 @@ A simple C# WinForms app that lets you chat with multiple AI models. 🤖
 - [ ] More Features?
 - [ ] Somehow make AI Remember stuff
 - [ ] Custom model input  
-- [ ] Actually save the API key 🔐  
-- [ ] Possibly redesign the UI 🎨  
+- [X] Actually save the API key 🔐  
+- [X] Possibly redesign the UI 🎨  
 - [x] Hide API key input using password-style characters  
 - [x] Accidentally explode my PC trying to build the app 💥  
 
