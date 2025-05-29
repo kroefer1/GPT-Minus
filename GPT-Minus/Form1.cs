@@ -1,19 +1,23 @@
-
-using GPT_Minus;
+Ôªøusing GPT_Minus;
 using System;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//merci chatgpt
-//made in switzerland (land mit grosse stein mit schnee drauf)
+using System.Runtime.InteropServices;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace GPT_Minus_App
 {
     public partial class Form1 : Form
     {
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private extern static void SendMessge(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
         private string apiKey = "";
-        private string selectedModel = "google/gemini-2.5-flash-preview-05-20";
+        private string selectedModel = "openai/gpt-4.1-nano";
 
         public Form1()
         {
@@ -23,24 +27,90 @@ namespace GPT_Minus_App
         private void btnSaveApiKey_Click(object sender, EventArgs e)
         {
             apiKey = txtApiKey.Text.Trim();
-            MessageBox.Show("API Key saved."); // es tut der api-key nicht mal speichern aber egallll
+            MessageBox.Show("API Key saved.");
         }
 
         private async void btnSend_Click(object sender, EventArgs e)
         {
-            selectedModel = cmbModel.SelectedItem.ToString();
+            selectedModel = cmbModel.SelectedItem?.ToString() ?? selectedModel;
+
             if (string.IsNullOrWhiteSpace(apiKey))
-            {                   //machet mal gpt plus f¸r alle gratis :herz:
+            {
                 MessageBox.Show("Please enter your API key. You can get one at https://openrouter.ai/settings/keys");
                 return;
             }
 
-            txtResponse.Text = $"Loading response from {selectedModel}";
-
             string input = txtUserInput.Text;
+
+            
+            await webViewResponse.EnsureCoreWebView2Async();
+
+            
+            string loadingHtml = $"<html><body style='background-color:#1e1e1e; color:gray; font-family:Segoe UI; padding:10px;'>" +
+                                 $"<p>‚è≥ Loading response from <b>{selectedModel}</b>...</p></body></html>";
+            webViewResponse.NavigateToString(loadingHtml);
+
             string response = await GetChatGPTResponse(input);
-            txtResponse.Text = response;
+
+            string markdownEscaped = JsonSerializer.Serialize(response);
+
+            string html = $@"
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <script src='https://cdn.jsdelivr.net/npm/marked/marked.min.js'></script>
+    <style>
+        body {{
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 20px;
+        }}
+        pre {{
+            background-color: #2d2d2d;
+            padding: 10px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }}
+        code {{
+            font-family: Consolas, monospace;
+        }}
+        table {{
+            border-collapse: collapse;
+            margin-top: 10px;
+        }}
+        th, td {{
+            border: 1px solid #555;
+            padding: 6px 12px;
+        }}
+        a {{
+            color: #4eaaff;
+        }}
+    </style>
+</head>
+<body>
+    <div id='content'><em>Rendering...</em></div>
+    <script>
+        const markdown = {markdownEscaped};
+
+        // Sicherstellen, dass JS im DOM l√§uft
+        window.addEventListener('DOMContentLoaded', function () {{
+            const html = marked.parse(markdown);
+            document.getElementById('content').innerHTML = html;
+        }});
+    </script>
+</body>
+</html>
+            ";
+
+
+
+            webViewResponse.NavigateToString(html);
+            txtUserInput.Clear();
+
         }
+
 
         public async Task<string> GetChatGPTResponse(string userInput)
         {
@@ -48,16 +118,16 @@ namespace GPT_Minus_App
             var client = new HttpClient();
             client.DefaultRequestHeaders.Clear();
             client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
-            client.DefaultRequestHeaders.Add("HTTP-Referer", "http://localhost"); //die scheiss leute wollen ein http addresse, wieso? weiss ich nicht.
+            client.DefaultRequestHeaders.Add("HTTP-Referer", "http://localhost");
             client.DefaultRequestHeaders.Add("X-Title", "GPT-Minus-App");
-            //raste aus wieso macht diser scheisse nit gud
+
             var requestBody = new
             {
                 model = selectedModel,
                 messages = new[]
                 {
-            new { role = "user", content = userInput }
-        }
+                    new { role = "user", content = userInput }
+                }
             };
 
             var content = new StringContent(JsonSerializer.Serialize(requestBody), Encoding.UTF8, "application/json");
@@ -89,30 +159,39 @@ namespace GPT_Minus_App
             }
         }
 
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void Form1_Load(object sender, EventArgs e) { }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 helpme = new Form2(); // offnen dise helping scheise
+            Form2 helpme = new Form2();
             helpme.ShowDialog();
         }
 
-        private void txtResponse_TextChanged(object sender, EventArgs e)
-        {
+        private void txtResponse_TextChanged(object sender, EventArgs e) { }
 
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessge(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
 
-
-// Danke an alle diese leute
-
-// mein lehrer
-// mein mitsch¸ler
-// Pythagoras
-// chatgpt
+//thanks to:
+//my teacher
+//my shit classmate
+//pythagoras
+//chatgpt
+//stackoverflow
+//google.com
+//ich, du und der ander

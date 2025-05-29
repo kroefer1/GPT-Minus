@@ -30,3 +30,12 @@ C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\bin\Debug\System.Threading.Tasks
 C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\bin\Debug\System.ValueTuple.xml
 C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\obj\Debug\GPT-Minus.csproj.Up2Date
 C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\obj\Debug\GPT_Minus.Form2.resources
+C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\bin\Debug\Microsoft.Web.WebView2.Core.dll
+C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\bin\Debug\Microsoft.Web.WebView2.Core.xml
+C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\sauce\source\repos\GPT-Minus\GPT-Minus\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
