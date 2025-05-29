@@ -42,10 +42,11 @@ namespace GPT_Minus_App
 
             string input = txtUserInput.Text;
 
-            
-            await webViewResponse.EnsureCoreWebView2Async();
+            if (webViewResponse.CoreWebView2 == null)
+            {
+                await webViewResponse.EnsureCoreWebView2Async();
+            }
 
-            
             string loadingHtml = $"<html><body style='background-color:#1e1e1e; color:gray; font-family:Segoe UI; padding:10px;'>" +
                                  $"<p>⏳ Loading response from <b>{selectedModel}</b>...</p></body></html>";
             webViewResponse.NavigateToString(loadingHtml);

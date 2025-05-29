@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\sauce\\source\\repos\\GPT-Minus\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FC9E842D-31F0-4385-BAF5-68A6C40C7FF8}|GPT-Minus\\GPT-Minus.csproj|c:\\users\\sauce\\source\\repos\\gpt-minus\\gpt-minus\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FC9E842D-31F0-4385-BAF5-68A6C40C7FF8}|GPT-Minus\\GPT-Minus.csproj|solutionrelative:gpt-minus\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC9E842D-31F0-4385-BAF5-68A6C40C7FF8}|GPT-Minus\\GPT-Minus.csproj|C:\\Users\\sauce\\source\\repos\\GPT-Minus\\gpt-minus\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC9E842D-31F0-4385-BAF5-68A6C40C7FF8}|GPT-Minus\\GPT-Minus.csproj|solutionrelative:gpt-minus\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FC9E842D-31F0-4385-BAF5-68A6C40C7FF8}|GPT-Minus\\GPT-Minus.csproj|c:\\users\\sauce\\source\\repos\\gpt-minus\\gpt-minus\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC9E842D-31F0-4385-BAF5-68A6C40C7FF8}|GPT-Minus\\GPT-Minus.csproj|solutionrelative:gpt-minus\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,14 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{FC9E842D-31F0-4385-BAF5-68A6C40C7FF8}|GPT-Minus\\GPT-Minus.csproj|C:\\Users\\sauce\\source\\repos\\GPT-Minus\\gpt-minus\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC9E842D-31F0-4385-BAF5-68A6C40C7FF8}|GPT-Minus\\GPT-Minus.csproj|solutionrelative:gpt-minus\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC9E842D-31F0-4385-BAF5-68A6C40C7FF8}|GPT-Minus\\GPT-Minus.csproj|C:\\Users\\sauce\\source\\repos\\GPT-Minus\\gpt-minus\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC9E842D-31F0-4385-BAF5-68A6C40C7FF8}|GPT-Minus\\GPT-Minus.csproj|solutionrelative:gpt-minus\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC9E842D-31F0-4385-BAF5-68A6C40C7FF8}|GPT-Minus\\GPT-Minus.csproj|c:\\users\\sauce\\source\\repos\\gpt-minus\\gpt-minus\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FC9E842D-31F0-4385-BAF5-68A6C40C7FF8}|GPT-Minus\\GPT-Minus.csproj|solutionrelative:gpt-minus\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|GPT-Minus||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
@@ -46,6 +46,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\sauce\\source\\repos\\GPT-Minus\\GPT-Minus\\Form1.cs",
+              "RelativeDocumentMoniker": "GPT-Minus\\Form1.cs",
+              "ToolTip": "C:\\Users\\sauce\\source\\repos\\GPT-Minus\\GPT-Minus\\Form1.cs [Design]",
+              "RelativeToolTip": "GPT-Minus\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T21:33:01.934Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Form2.cs",
               "DocumentMoniker": "C:\\Users\\sauce\\source\\repos\\GPT-Minus\\GPT-Minus\\Form2.cs",
               "RelativeDocumentMoniker": "GPT-Minus\\Form2.cs",
@@ -69,7 +81,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Form2.Designer.cs",
               "DocumentMoniker": "C:\\Users\\sauce\\source\\repos\\GPT-Minus\\GPT-Minus\\Form2.Designer.cs",
               "RelativeDocumentMoniker": "GPT-Minus\\Form2.Designer.cs",
@@ -82,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Form2.cs [Design]",
               "DocumentMoniker": "C:\\Users\\sauce\\source\\repos\\GPT-Minus\\GPT-Minus\\Form2.cs",
               "RelativeDocumentMoniker": "GPT-Minus\\Form2.cs",
@@ -94,28 +106,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\sauce\\source\\repos\\GPT-Minus\\GPT-Minus\\Form1.cs",
               "RelativeDocumentMoniker": "GPT-Minus\\Form1.cs",
               "ToolTip": "C:\\Users\\sauce\\source\\repos\\GPT-Minus\\GPT-Minus\\Form1.cs",
               "RelativeToolTip": "GPT-Minus\\Form1.cs",
-              "ViewState": "AgIAAKMAAAAAAAAAAAAywMQAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAcwC8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-28T14:05:20.901Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\sauce\\source\\repos\\GPT-Minus\\GPT-Minus\\Form1.cs",
-              "RelativeDocumentMoniker": "GPT-Minus\\Form1.cs",
-              "ToolTip": "C:\\Users\\sauce\\source\\repos\\GPT-Minus\\GPT-Minus\\Form1.cs [Design]",
-              "RelativeToolTip": "GPT-Minus\\Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T14:05:16.117Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }
