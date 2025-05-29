@@ -14,6 +14,8 @@ soon
 - [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2?form=MA13LH#download) 🌐  
 
 ## To-Do List 📝
+- [ ] More Features?
+- [ ] Somehow make AI Remember stuff
 - [ ] Custom model input  
 - [ ] Actually save the API key 🔐  
 - [ ] Possibly redesign the UI 🎨  
