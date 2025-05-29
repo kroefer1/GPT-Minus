@@ -35,4 +35,5 @@ Thanks to everyone who inspired or helped make this project possible:
 - My teacher  
 - My classmate  
 - Pythagoras  
-- ChatGPT  
+- ChatGPT
+- Stackoverflow
