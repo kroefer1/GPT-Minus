@@ -8,7 +8,8 @@ if you want to use this unstable version build it yourself
 
 ## Requirements ⚙️
 - Windows 10 or later (older versions not tested) 🖥️  
-- [.NET Framework 4.7](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net47) 🧩  
+- [.NET Framework 4.7](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net47) 🧩
+- [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2?form=MA13LH#download)
 - 2 MB of available storage  
 
 ![Screenshot](https://github.com/user-attachments/assets/1a4a3072-f388-43b7-9256-c16f522b3755)
