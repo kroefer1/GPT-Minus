@@ -11,9 +11,10 @@ soon
 ## Requirements ⚙️
 - Windows 10 or later (older versions not tested) 🖥️  
 - [.NET Framework 4.7](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net47) 🧩  
-- [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2?form=MA13LH#download) 🌐  
+- [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2?form=MA13LH#download) 🌐
 
 ## To-Do List 📝
+- [ ] Make it so that the user can’t navigate to other websites via the WebView.
 - [ ] More Features?
 - [ ] Somehow make AI Remember stuff
 - [ ] Custom model input  
