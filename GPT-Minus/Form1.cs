@@ -1,5 +1,4 @@
 ﻿using GPT_Minus;
-using GPT_Minus.Properties;
 using System;
 using System.Net.Http;
 using System.Text;
@@ -16,18 +15,59 @@ namespace GPT_Minus_App
         private extern static void ReleaseCapture();
 
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private extern static void SendMessge(IntPtr hwnd, int wmsg, int wparam, int lparam);
 
         private string apiKey = "";
-        private string selectedModel = "openai/gpt-4.1-nano";
+        private string selectedModel = "deepseek/deepseek-r1-0528-qwen3-8b:free";
+        private Task coreWebView2InitializationTask;
 
         public Form1()
         {
             InitializeComponent();
+            // Start WebView initialization on form load
+            _ = EnsureWebViewInitializedAsync();
+        }
 
-            // Load saved API key
-            txtApiKey.Text = GPT_Minus.Properties.Settings.Default.ApiKey;
-            apiKey = txtApiKey.Text.Trim();
+        private async Task EnsureWebViewInitializedAsync()
+        {
+            if (webViewResponse.CoreWebView2 == null)
+            {
+                if (coreWebView2InitializationTask == null)
+                {
+                    coreWebView2InitializationTask = webViewResponse.EnsureCoreWebView2Async();
+                }
+                await coreWebView2InitializationTask;
+
+                // Show placeholder after WebView2 is ready
+                ShowInitialPlaceholder();
+            }
+        }
+
+        private void ShowInitialPlaceholder()
+        {
+            string placeholderHtml = @"
+            <html>
+            <head>
+                <style>
+                    body {
+                        margin: 0;
+                        background-color: #1e1e1e;
+                        color: gray;
+                        font-family: 'Segoe UI', sans-serif;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        user-select: none;
+                    }
+                </style>
+            </head>
+            <body>
+                <h1>GPT-Minus</h1>
+            </body>
+            </html>";
+
+            webViewResponse.NavigateToString(placeholderHtml);
         }
 
         private void btnSaveApiKey_Click(object sender, EventArgs e)
@@ -35,11 +75,14 @@ namespace GPT_Minus_App
             apiKey = txtApiKey.Text.Trim();
             GPT_Minus.Properties.Settings.Default.ApiKey = apiKey;
             GPT_Minus.Properties.Settings.Default.Save();
+
             MessageBox.Show("API Key saved.");
         }
 
         private async void btnSend_Click(object sender, EventArgs e)
         {
+            await EnsureWebViewInitializedAsync();
+
             selectedModel = cmbModel.SelectedItem?.ToString() ?? selectedModel;
 
             if (string.IsNullOrWhiteSpace(apiKey))
@@ -49,19 +92,6 @@ namespace GPT_Minus_App
             }
 
             string input = txtUserInput.Text;
-
-            try
-            {
-                if (webViewResponse.CoreWebView2 == null)
-                {
-                    await webViewResponse.EnsureCoreWebView2Async();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("WebView2 error: " + ex.Message);
-                return;
-            }
 
             string loadingHtml = $"<html><body style='background-color:#1e1e1e; color:gray; font-family:Segoe UI; padding:10px;'>" +
                                  $"<p>⏳ Loading response from <b>{selectedModel}</b>...</p></body></html>";
@@ -116,8 +146,7 @@ namespace GPT_Minus_App
         }});
     </script>
 </body>
-</html>
-            ";
+</html>";
 
             webViewResponse.NavigateToString(html);
             txtUserInput.Clear();
@@ -135,7 +164,8 @@ namespace GPT_Minus_App
             var requestBody = new
             {
                 model = selectedModel,
-                messages = new[] {
+                messages = new[]
+                {
                     new { role = "user", content = userInput }
                 }
             };
@@ -154,11 +184,13 @@ namespace GPT_Minus_App
                         return "API Error: " + error.GetProperty("message").GetString();
                     }
 
-                    return json.RootElement
+                    string message = json.RootElement
                         .GetProperty("choices")[0]
                         .GetProperty("message")
                         .GetProperty("content")
                         .GetString();
+
+                    return message;
                 }
             }
             catch (Exception ex)
@@ -167,7 +199,12 @@ namespace GPT_Minus_App
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e) { }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // Load saved API key on form load
+            apiKey = GPT_Minus.Properties.Settings.Default.ApiKey;
+            txtApiKey.Text = apiKey;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -180,7 +217,7 @@ namespace GPT_Minus_App
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            SendMessge(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void label4_Click(object sender, EventArgs e)
