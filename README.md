@@ -14,6 +14,7 @@ A simple C# WinForms app that lets you chat with multiple AI models. 🤖
 - [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2?form=MA13LH#download) 🌐
 
 ## To-Do List 📝
+- [ ] Make installer
 - [ ] Make it so that the user can’t navigate to other websites via the WebView.
 - [ ] More Features?
 - [ ] Somehow make AI Remember stuff
