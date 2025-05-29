@@ -1,4 +1,5 @@
 ﻿using GPT_Minus;
+using GPT_Minus.Properties;
 using System;
 using System.Net.Http;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 namespace GPT_Minus_App
 {
     public partial class Form1 : Form
@@ -15,18 +16,25 @@ namespace GPT_Minus_App
         private extern static void ReleaseCapture();
 
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
-        private extern static void SendMessge(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private extern static void SendMessage(IntPtr hwnd, int wmsg, int wparam, int lparam);
+
         private string apiKey = "";
         private string selectedModel = "openai/gpt-4.1-nano";
 
         public Form1()
         {
             InitializeComponent();
+
+            // Load saved API key
+            txtApiKey.Text = GPT_Minus.Properties.Settings.Default.ApiKey;
+            apiKey = txtApiKey.Text.Trim();
         }
 
         private void btnSaveApiKey_Click(object sender, EventArgs e)
         {
             apiKey = txtApiKey.Text.Trim();
+            GPT_Minus.Properties.Settings.Default.ApiKey = apiKey;
+            GPT_Minus.Properties.Settings.Default.Save();
             MessageBox.Show("API Key saved.");
         }
 
@@ -42,9 +50,17 @@ namespace GPT_Minus_App
 
             string input = txtUserInput.Text;
 
-            if (webViewResponse.CoreWebView2 == null)
+            try
             {
-                await webViewResponse.EnsureCoreWebView2Async();
+                if (webViewResponse.CoreWebView2 == null)
+                {
+                    await webViewResponse.EnsureCoreWebView2Async();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("WebView2 error: " + ex.Message);
+                return;
             }
 
             string loadingHtml = $"<html><body style='background-color:#1e1e1e; color:gray; font-family:Segoe UI; padding:10px;'>" +
@@ -94,8 +110,6 @@ namespace GPT_Minus_App
     <div id='content'><em>Rendering...</em></div>
     <script>
         const markdown = {markdownEscaped};
-
-        // Sicherstellen, dass JS im DOM läuft
         window.addEventListener('DOMContentLoaded', function () {{
             const html = marked.parse(markdown);
             document.getElementById('content').innerHTML = html;
@@ -105,13 +119,9 @@ namespace GPT_Minus_App
 </html>
             ";
 
-
-
             webViewResponse.NavigateToString(html);
             txtUserInput.Clear();
-
         }
-
 
         public async Task<string> GetChatGPTResponse(string userInput)
         {
@@ -125,8 +135,7 @@ namespace GPT_Minus_App
             var requestBody = new
             {
                 model = selectedModel,
-                messages = new[]
-                {
+                messages = new[] {
                     new { role = "user", content = userInput }
                 }
             };
@@ -145,13 +154,11 @@ namespace GPT_Minus_App
                         return "API Error: " + error.GetProperty("message").GetString();
                     }
 
-                    string message = json.RootElement
+                    return json.RootElement
                         .GetProperty("choices")[0]
                         .GetProperty("message")
                         .GetProperty("content")
                         .GetString();
-
-                    return message;
                 }
             }
             catch (Exception ex)
@@ -173,7 +180,7 @@ namespace GPT_Minus_App
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessge(this.Handle, 0x112, 0xf012, 0);
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -187,12 +194,3 @@ namespace GPT_Minus_App
         }
     }
 }
-
-//thanks to:
-//my teacher
-//my shit classmate
-//pythagoras
-//chatgpt
-//stackoverflow
-//google.com
-//ich, du und der ander
