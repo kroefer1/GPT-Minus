@@ -64,3 +64,12 @@ Thanks to everyone who inspired or helped make this project possible:
 - Pythagoras  
 - ChatGPT
 - Stackoverflow
+
+## seak peaks hehehehe
+![image](https://github.com/user-attachments/assets/1ded9d84-f277-4850-9b12-24053fb33591)
+> note: unrealeased version (beta 0.4) ui may change  
+---
+![image](https://github.com/user-attachments/assets/e5ec26e4-8af9-497b-b06d-8ae5a339a1d8)
+> note: ui is not actually pure black, its because i disabled micaforeveryone temporarly on rectify 11
+---
+![image](https://github.com/user-attachments/assets/23d7a3fa-2574-4bee-9095-218789e22dcf)
