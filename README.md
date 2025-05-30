@@ -6,18 +6,28 @@ A simple C# WinForms app that lets you chat with multiple AI models. 🤖
 > UI may change in the future — you can help improve it [here.](#help-wanted-%EF%B8%8F)
 
 ## Download 📦
-[Releases](https://github.com/kroefer1/GPT-Minus/releases/tag/v0.2.1-beta) Tab
+[Releases](https://github.com/kroefer1/GPT-Minus/releases/tag/v0.3-beta) Tab
 > Note: there is no note
 ## Requirements ⚙️
 - Windows 10 or later (older versions not tested) 🖥️  
 - [.NET Framework 4.7](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net47) 🧩  
-- [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2?form=MA13LH#download) 🌐
+- [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2?form=MA13LH#download) 🌐  
+- A free API key from [OpenRouter.ai](https://openrouter.ai/settings/keys)
+
+## How to use ❓
+1. Download the app from the [Releases](https://github.com/kroefer1/GPT-Minus/releases/tag/v0.3-beta) tab.  
+2. Paste your API key from [OpenRouter.ai](https://openrouter.ai/settings/keys) into the textbox near the "Save" button.  
+3. Click the "Save" button to store your API key.  
+4. Select a model from the dropdown menu (click the "What?" button to get help choosing).  
+5. Type a message into the chatbox and press the "Send" button.  
+> Chat logs are saved as JSON files in the app's `chatlogs` folder, with filenames based on the date and time.
+
 
 ## To-Do List 📝
 - [ ] Make installer
 - [ ] Make it so that the user can’t navigate to other websites via the WebView.
 - [ ] More Features?
-- [X] Somehow make AI Remember stuff (coming in v0.3-beta)
+- [X] Somehow make AI Remember stuff
 - [ ] Custom model input  
 - [X] Actually save the API key 🔐  
 - [X] Possibly redesign the UI 🎨  
