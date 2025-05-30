@@ -31,9 +31,10 @@ namespace GPT_Minus_App
             this.webViewResponse = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnClearChat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.webViewResponse)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -69,9 +70,9 @@ namespace GPT_Minus_App
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(378, 391);
+            this.btnSend.Location = new System.Drawing.Point(378, 420);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(118, 51);
+            this.btnSend.Size = new System.Drawing.Size(118, 22);
             this.btnSend.TabIndex = 3;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -146,14 +147,17 @@ namespace GPT_Minus_App
             this.panel1.TabIndex = 10;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // label3
+            // label5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "GPT-Minus";
+            this.label5.AutoSize = true;
+            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.label5.Location = new System.Drawing.Point(774, 2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(13, 17);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "-";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -167,17 +171,24 @@ namespace GPT_Minus_App
             this.label4.Text = "X";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // label5
+            // label3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.label5.Location = new System.Drawing.Point(774, 2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(13, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "-";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "GPT-Minus";
+            // 
+            // btnClearChat
+            // 
+            this.btnClearChat.Location = new System.Drawing.Point(378, 391);
+            this.btnClearChat.Name = "btnClearChat";
+            this.btnClearChat.Size = new System.Drawing.Size(118, 21);
+            this.btnClearChat.TabIndex = 11;
+            this.btnClearChat.Text = "Clear Chat";
+            this.btnClearChat.UseVisualStyleBackColor = true;
+            this.btnClearChat.Click += new System.EventHandler(this.btnClearChat_Click);
             // 
             // Form1
             // 
@@ -185,6 +196,7 @@ namespace GPT_Minus_App
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(814, 462);
+            this.Controls.Add(this.btnClearChat);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.webViewResponse);
@@ -218,5 +230,6 @@ namespace GPT_Minus_App
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnClearChat;
     }
 }
