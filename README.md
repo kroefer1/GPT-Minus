@@ -34,6 +34,22 @@ A simple C# WinForms app that lets you chat with multiple AI models. 🤖
 - [x] Hide API key input using password-style characters  
 - [x] Accidentally explode my PC trying to build the app 💥  
 
+## FAQ ❔
+
+**Q: Why are the chat logs saved?**  
+A: So that the AI remembers things, and I’m adding a feature to load previous chats.
+
+**Q: Is my API key saved securely?**  
+A: No. If you care about storing it securely, make a suggestion in the Issues tab.  
+*Note: If you want to know where it's stored, here's the path:*  
+`C:\Users\username\AppData\Local\GPT_Minus`
+
+**Q: Why does nothing happen when I click Send?**  
+A: You do not have an internet connection.
+
+**Q: My PC exploded**  
+A: Buy a new one :D
+
 ## Suggestions and Bugs 🐞
 Please leave any suggestions or bug reports in the [Issues](../../issues) tab. Your feedback is very appreciated! 😄
 
