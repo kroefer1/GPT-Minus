@@ -45,6 +45,85 @@ namespace GPT_Minus_App
             currentLogFilePath = Path.Combine(chatlogDir, timestamp + "_chatlog.json");
         }
 
+        /* this is coming later as it doesnt work as intented refer to line 212 for info
+        private string BuildChatHtmlWithLoading(string userInput)
+        {
+            var historyBuilder = new StringBuilder();
+            for (int i = 0; i < messages.Count; i++)
+            {
+                var msg = messages[i];
+                string sender = msg.role == "user" ? "You" : "AI";
+                string mdEscaped = JsonSerializer.Serialize($"**{sender}:**\n\n{msg.content}");
+                historyBuilder.AppendLine($"chatHistory.push({mdEscaped});");
+            }
+
+            string inputEscaped = JsonSerializer.Serialize($"**You:**\n\n{userInput}");
+
+            string html = $@"
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<script src='https://cdn.jsdelivr.net/npm/marked/marked.min.js'></script>
+<style>
+    body {{
+        background-color: #1e1e1e;
+        color: #ffffff;
+        font-family: 'Segoe UI', sans-serif;
+        padding: 20px;
+    }}
+    pre {{
+        background-color: #2d2d2d;
+        padding: 10px;
+        border-radius: 6px;
+        overflow-x: auto;
+    }}
+    code {{
+        font-family: Consolas, monospace;
+    }}
+    .loading {{
+        font-style: italic;
+        color: #aaa;
+        animation: pulse 1.2s infinite;
+        margin-top: 12px;
+    }}
+    @keyframes pulse {{
+        0% {{ opacity: 0.2; }}
+        50% {{ opacity: 1; }}
+        100% {{ opacity: 0.2; }}
+    }}
+</style>
+</head>
+<body>
+<div id='chat'></div>
+<script>
+    const chatHistory = [];
+    {historyBuilder}
+
+    chatHistory.push({inputEscaped});
+
+    const chatContainer = document.getElementById('chat');
+    chatHistory.forEach(md => {{
+        const div = document.createElement('div');
+        div.innerHTML = marked.parse(md);
+        chatContainer.appendChild(div);
+        const hr = document.createElement('hr');
+        chatContainer.appendChild(hr);
+    }});
+
+    // Show loading animation
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'loading';
+    loadingDiv.textContent = 'AI is thinking...';
+    chatContainer.appendChild(loadingDiv);
+    window.scrollTo(0, document.body.scrollHeight);
+</script>
+</body>
+</html>";
+            return html;
+        }
+
+ */
         private async Task EnsureWebViewInitializedAsync()
         {
             if (webViewResponse.CoreWebView2 == null)
@@ -115,34 +194,95 @@ namespace GPT_Minus_App
                 return;
             }
 
-            string input = txtUserInput.Text;
+            string input = txtUserInput.Text.Trim();
+            if (string.IsNullOrEmpty(input))
+            {
+                SetControlsEnabled(true);
+                return;
+            }
+
             messages.Add(new ChatMessage { role = "user", content = input });
 
-            webViewResponse.NavigateToString($"<html><body style='background-color:#1e1e1e; color:gray; font-family:Segoe UI; padding:10px;'><p>⏳ Loading response from <b>{selectedModel}</b>...</p></body></html>");
+            webViewResponse.NavigateToString($@"
+            <html><body style='background-color:#1e1e1e; color:gray; font-family:Segoe UI; padding:10px;'>
+            <p>⏳ Loading response from <b>{selectedModel}</b>...</p></body></html>");
+            
+
+            //Build chat UI with temporary "thinking..." message
+            //disabled due to not working (it shows user message 2 times? wtf)
+
+            // WARNING: if enabled comment lines 205, 206, 207 or the app will probally glitch out idk
+
+            //var loadingHtml = BuildChatHtmlWithLoading(input);
+            //webViewResponse.NavigateToString(loadingHtml);
+
 
             string response = await GetChatGPTResponse();
             messages.Add(new ChatMessage { role = "assistant", content = response });
             SaveChatLog();
 
-            string markdownEscaped = JsonSerializer.Serialize(response);
+            // ⬇️ Build full chat as Markdown
+            StringBuilder markdownBuilder = new StringBuilder();
+            foreach (var msg in messages)
+            {
+                string roleLabel = msg.role == "user" ? "**You:**" : "**AI:**";
+                markdownBuilder.AppendLine($"{roleLabel}\n\n{msg.content}\n\n---\n");
+            }
+
+            string fullMarkdown = JsonSerializer.Serialize(markdownBuilder.ToString());
+
             string html = $@"
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset='utf-8'>
 <script src='https://cdn.jsdelivr.net/npm/marked/marked.min.js'></script>
-<style>body {{ background-color: #1e1e1e; color: #ffffff; font-family: 'Segoe UI', sans-serif; padding: 20px; }} pre {{ background-color: #2d2d2d; padding: 10px; border-radius: 6px; overflow-x: auto; }} code {{ font-family: Consolas, monospace; }} table {{ border-collapse: collapse; margin-top: 10px; }} th, td {{ border: 1px solid #555; padding: 6px 12px; }} a {{ color: #4eaaff; }}</style>
+<style>
+    body {{
+        background-color: #1e1e1e;
+        color: #ffffff;
+        font-family: 'Segoe UI', sans-serif;
+        padding: 20px;
+    }}
+    pre {{
+        background-color: #2d2d2d;
+        padding: 10px;
+        border-radius: 6px;
+        overflow-x: auto;
+    }}
+    code {{
+        font-family: Consolas, monospace;
+    }}
+    table {{
+        border-collapse: collapse;
+        margin-top: 10px;
+    }}
+    th, td {{
+        border: 1px solid #555;
+        padding: 6px 12px;
+    }}
+    a {{
+        color: #4eaaff;
+    }}
+</style>
 </head>
 <body>
-<div id='content'><em>Rendering...</em></div>
-<script>const markdown = {markdownEscaped}; window.addEventListener('DOMContentLoaded', function () {{ const html = marked.parse(markdown); document.getElementById('content').innerHTML = html; }});</script>
+<div id='content'><em>Rendering full chat history...</em></div>
+<script>
+    const markdown = {fullMarkdown};
+    window.addEventListener('DOMContentLoaded', function () {{
+        const html = marked.parse(markdown);
+        document.getElementById('content').innerHTML = html;
+    }});
+</script>
 </body>
 </html>";
+
             webViewResponse.NavigateToString(html);
             txtUserInput.Clear();
-
-            SetControlsEnabled(true); // Re-enable controls after processing
+            SetControlsEnabled(true); // Re-enable controls
         }
+
 
         private void SetControlsEnabled(bool enabled)
         {
