@@ -65,6 +65,42 @@ Thanks to everyone who inspired or helped make this project possible:
 - ChatGPT
 - Stackoverflow
 
+# WARNING: DONT SCROLL FURTHER THAN THIS POINT
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+# stop scrolling
+
+ok ig you made it
+
 ## seak peaks hehehehe
 ![image](https://github.com/user-attachments/assets/1ded9d84-f277-4850-9b12-24053fb33591)
 > note: unrealeased version (beta 0.4) ui may change  
