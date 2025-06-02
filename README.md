@@ -25,6 +25,7 @@ A simple C# WinForms app that lets you chat with multiple AI models. 🤖
 
 ## To-Do List 📝
 - [X] Make installer
+- [ ] Fix UI (it has default buttons on normal windows)
 - [ ] Attatchment sending
 - [ ] Make it so that the user can’t navigate to other websites via the WebView.
 - [X] Somehow make AI Remember stuff
