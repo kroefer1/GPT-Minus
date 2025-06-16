@@ -24,12 +24,13 @@ A simple C# WinForms app that lets you chat with multiple AI models. 🤖
 
 
 ## To-Do List 📝
-- [X] Make installer
-- [ ] Fix UI (it has default buttons on normal windows)
+- [ ] Auto-Updater
+- [ ] Fix UI (it has default buttons on normal windows themes)
 - [ ] Attatchment sending
 - [ ] Make it so that the user can’t navigate to other websites via the WebView.
+- [ ] Custom model input
 - [X] Somehow make AI Remember stuff
-- [ ] Custom model input  
+- [X] Make installer  
 - [X] Actually save the API key 🔐  
 - [X] Possibly redesign the UI 🎨  
 - [x] Hide API key input using password-style characters  
@@ -38,7 +39,7 @@ A simple C# WinForms app that lets you chat with multiple AI models. 🤖
 ## FAQ ❔
 
 **Q: Why are the chat logs saved?**  
-A: So that the AI remembers things, and I’m adding a feature to load previous chats.
+A: So that the AI remembers things, and so you can load them.
 
 **Q: Is my API key saved securely?**  
 A: No. If you care about storing it securely, make a suggestion in the Issues tab.  
